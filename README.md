@@ -1,0 +1,1 @@
+# assurity_consulting_assignment
