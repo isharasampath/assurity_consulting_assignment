@@ -16,9 +16,9 @@ public class JacksonUtil {
     /**
      * Deserialize json string to object
      *
-     * @param jsonString Json string
-     * @param type Object type to be converted to
-     * @return Deserialized java.lang.Object
+     * @param jsonString Json string {@link String}
+     * @param type Object type to be converted to {@link Class}
+     * @return Deserialized {@link T} generic object
      */
     public <T> T convert(String jsonString, Class<?> type) {
         try {
@@ -36,8 +36,8 @@ public class JacksonUtil {
     /**
      * Serialize json object to string
      *
-     * @param value Json object
-     * @return Serialized java.lang.String
+     * @param value Json object {@link Object}
+     * @return Serialized {@link String} object
      */
     public String convertToString(Object value) {
         try {

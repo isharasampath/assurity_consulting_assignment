@@ -2,6 +2,9 @@ package com.assurity.assignment.framework.model.api.request;
 
 import java.util.Map;
 
+/**
+ * Data transfer object for http request data
+ */
 public class ApiRequest {
     private String url;
     private String jsonBody;

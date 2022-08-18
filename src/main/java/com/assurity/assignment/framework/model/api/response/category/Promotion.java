@@ -2,6 +2,9 @@ package com.assurity.assignment.framework.model.api.response.category;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Java model object for 'Promotion' json
+ */
 public class Promotion {
     @JsonProperty("Id")
     private Integer id;

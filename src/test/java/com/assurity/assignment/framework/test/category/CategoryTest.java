@@ -11,6 +11,11 @@ import java.util.List;
 
 public class CategoryTest extends TestBase {
 
+    private static final String CATEGORY_ID = "6327" ;
+    private static final String CATEGORY_NAME = "Carbon credits" ;
+    private static final String PROMOTION_NAME = "Gallery" ;
+    private static final String PROMOTION_DESCRIPTION = "Good position in category" ;
+
     private CategoryFunctions categoryFunctions;
 
     @BeforeClass
@@ -20,17 +25,17 @@ public class CategoryTest extends TestBase {
 
     @Test
     public void readCategoryTest() {
-        Category category = categoryFunctions.getCategory("6327", false);
-        softAssert.assertEquals(category.getName(), "Carbon credits");
+        Category category = categoryFunctions.getCategory(CATEGORY_ID, false);
+        softAssert.assertEquals(category.getName(), CATEGORY_NAME);
         softAssert.assertTrue(category.getCanRelist());
-        validatePromotion(category.getPromotions(), "Gallery", "Good position in category");
+        validatePromotion(category.getPromotions(), PROMOTION_NAME, PROMOTION_DESCRIPTION);
         softAssert.assertAll();
     }
 
     private void validatePromotion(List<Promotion> promotionList, String searchKey, String valueToBePresent) {
-        for (Promotion p : promotionList) {
-            if (p.getName().equals(searchKey)) {
-                softAssert.assertTrue(p.getDescription().contains(valueToBePresent));
+        for (Promotion promotion : promotionList) {
+            if (promotion.getName().equals(searchKey)) {
+                softAssert.assertTrue(promotion.getDescription().contains(valueToBePresent));
             }
         }
     }

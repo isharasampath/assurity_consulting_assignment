@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+/**
+ * Java model object for 'Category' json
+ */
 public class Category {
     @JsonProperty("CategoryId")
     private Integer categoryId;

@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+/**
+ * Java model object for 'Fees' json
+ */
 public class Fees {
     @JsonProperty("Bundle")
     private Double bundle;

@@ -3,6 +3,7 @@ package com.assurity.assignment.framework.api.clientimpl;
 import com.assurity.assignment.framework.api.HttpClientService;
 import com.assurity.assignment.framework.model.api.request.ApiRequest;
 import com.assurity.assignment.framework.model.api.response.ApiResponse;
+import com.assurity.assignment.framework.utils.api.LoggerUtil;
 import okhttp3.*;
 
 import java.io.IOException;
@@ -17,6 +18,12 @@ public class OkHttpClientImpl implements HttpClientService {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
 
+    /**
+     * Http get method client implementation
+     *
+     * @param apiRequest {@link ApiRequest}
+     * @return {@link ApiResponse} object
+     */
     @Override
     public ApiResponse get(ApiRequest apiRequest) {
         try {
@@ -29,6 +36,9 @@ public class OkHttpClientImpl implements HttpClientService {
                     .build();
 
             Response response = client.newCall(request).execute();
+            LoggerUtil.getLogger().info("Status Code: {}", response.code());
+            LoggerUtil.getLogger().info("Response Message: {}", response.message());
+            LoggerUtil.getLogger().info("Response Body: {}", response.body().string());
             return new ApiResponse(response.message(), response.body().string(), response.code());
 
         } catch (Exception e) {
@@ -37,6 +47,12 @@ public class OkHttpClientImpl implements HttpClientService {
         }
     }
 
+    /**
+     * Http post method client implementation
+     *
+     * @param apiRequest {@link ApiRequest}
+     * @return {@link ApiResponse} object
+     */
     @Override
     public ApiResponse post(ApiRequest apiRequest) {
         try {
@@ -50,6 +66,9 @@ public class OkHttpClientImpl implements HttpClientService {
                     .headers(headers)
                     .build();
             Response response = client.newCall(request).execute();
+            LoggerUtil.getLogger().info("Status Code: {}", response.code());
+            LoggerUtil.getLogger().info("Response Message: {}", response.message());
+            LoggerUtil.getLogger().info("Response Body: {}", response.body().string());
             return new ApiResponse(response.message(), response.body().string(), response.code());
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,6 +76,12 @@ public class OkHttpClientImpl implements HttpClientService {
         }
     }
 
+    /**
+     * Http put method client implementation
+     *
+     * @param apiRequest {@link ApiRequest}
+     * @return {@link ApiResponse} object
+     */
     @Override
     public ApiResponse put(ApiRequest apiRequest) {
         try {
@@ -70,6 +95,9 @@ public class OkHttpClientImpl implements HttpClientService {
                     .headers(headers)
                     .build();
             Response response = client.newCall(request).execute();
+            LoggerUtil.getLogger().info("Status Code: {}", response.code());
+            LoggerUtil.getLogger().info("Response Message: {}", response.message());
+            LoggerUtil.getLogger().info("Response Body: {}", response.body().string());
             return new ApiResponse(response.message(), response.body().string(), response.code());
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,6 +105,12 @@ public class OkHttpClientImpl implements HttpClientService {
         }
     }
 
+    /**
+     * Http patch method client implementation
+     *
+     * @param apiRequest {@link ApiRequest}
+     * @return {@link ApiResponse} object
+     */
     @Override
     public ApiResponse patch(ApiRequest apiRequest) {
         try {
@@ -90,6 +124,9 @@ public class OkHttpClientImpl implements HttpClientService {
                     .headers(headers)
                     .build();
             Response response = client.newCall(request).execute();
+            LoggerUtil.getLogger().info("Status Code: {}", response.code());
+            LoggerUtil.getLogger().info("Response Message: {}", response.message());
+            LoggerUtil.getLogger().info("Response Body: {}", response.body().string());
             return new ApiResponse(response.message(), response.body().string(), response.code());
         } catch (IOException e) {
             e.printStackTrace();
@@ -97,6 +134,12 @@ public class OkHttpClientImpl implements HttpClientService {
         }
     }
 
+    /**
+     * Http delete method client implementation
+     *
+     * @param apiRequest {@link ApiRequest}
+     * @return {@link ApiResponse} object
+     */
     @Override
     public ApiResponse delete(ApiRequest apiRequest) {
         try {
@@ -109,6 +152,9 @@ public class OkHttpClientImpl implements HttpClientService {
                     .build();
 
             Response response = client.newCall(request).execute();
+            LoggerUtil.getLogger().info("Status Code: {}", response.code());
+            LoggerUtil.getLogger().info("Response Message: {}", response.message());
+            LoggerUtil.getLogger().info("Response Body: {}", response.body().string());
             return new ApiResponse(response.message(), response.body().string(), response.code());
 
         } catch (Exception e) {
@@ -117,6 +163,11 @@ public class OkHttpClientImpl implements HttpClientService {
         }
     }
 
+    /**
+     * Create client instance
+     *
+     * @return {@link OkHttpClient} object
+     */
     private OkHttpClient getClient() {
         return new OkHttpClient().newBuilder()
                 .connectTimeout(HTTP_REQUEST_TIMEOUT, TimeUnit.SECONDS)
@@ -124,6 +175,12 @@ public class OkHttpClientImpl implements HttpClientService {
                 .readTimeout(HTTP_REQUEST_TIMEOUT, TimeUnit.SECONDS).build();
     }
 
+    /**
+     * Build headers based on the user input. If there's not user input, it will create a default header
+     *
+     * @param apiRequest {@link ApiRequest}
+     * @return {@link Headers} object
+     */
     private Headers buildHeaders(ApiRequest apiRequest) {
         Headers headers = null;
         if (apiRequest.getHeader() != null) {

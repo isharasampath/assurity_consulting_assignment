@@ -1,5 +1,8 @@
 package com.assurity.assignment.framework.model.api.response;
 
+/**
+ * Data transfer object for http response data
+ */
 public class ApiResponse {
     private String responseMessage;
     private String responseBody;

@@ -15,7 +15,6 @@ public class Constants {
     static {
         String resourceName = "framework_configs.properties";
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        Properties props = new Properties();
         try (InputStream resourceStream = loader.getResourceAsStream(resourceName)) {
             properties.load(resourceStream);
         } catch (IOException e) {

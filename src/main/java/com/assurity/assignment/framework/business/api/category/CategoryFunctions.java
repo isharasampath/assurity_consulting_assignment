@@ -13,6 +13,13 @@ import static com.assurity.assignment.framework.common.api.Constants.API_URL;
 
 public class CategoryFunctions extends FunctionBase {
 
+    /**
+     * Find a category
+     *
+     * @param categoryId {@link String}
+     * @param isRequiredCatalog {@link Boolean}
+     * @return {@link Category} object
+     */
     public Category getCategory(String categoryId, boolean isRequiredCatalog) {
         String url = String.format(API_URL + API_RESOURCE_PATH_CATEGORIES, categoryId);
         Map<String, Object> queryParams = new HashMap<>(1);
