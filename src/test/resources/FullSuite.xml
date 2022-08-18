@@ -1,0 +1,7 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Full Suite">
+    <suite-files>
+        <suite-file path="CategoryTests.xml"/>
+    </suite-files>
+</suite>

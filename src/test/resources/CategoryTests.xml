@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Category Tests Suite">
+    <test name="Category Tests">
+        <classes>
+            <class name="com.assurity.assignment.framework.test.category.CategoryTest"/>
+        </classes>
+    </test>
+</suite>
