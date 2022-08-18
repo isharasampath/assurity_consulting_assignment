@@ -4,8 +4,8 @@ This repository contains the api test scenarios to test the api.tmsandbox.co.nz.
 ## Supported Operating Systems
 * Windows
 * Linux
-* Mac
-##Folder Structure
+* Mac  
+## Folder Structure  
 ![](docs/folder_structure.png)  
 `com.assurity.assignment.framework` is the root package of the core components of the framework.
 ### api
