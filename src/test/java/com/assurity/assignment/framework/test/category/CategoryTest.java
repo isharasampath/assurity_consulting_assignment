@@ -26,8 +26,8 @@ public class CategoryTest extends TestBase {
     @Test
     public void readCategoryTest() {
         Category category = categoryFunctions.getCategory(CATEGORY_ID, false);
-        softAssert.assertEquals(category.getName(), CATEGORY_NAME);
-        softAssert.assertTrue(category.getCanRelist());
+        softAssert.assertEquals(category.getName(), CATEGORY_NAME, "Expected category name not found!");
+        softAssert.assertTrue(category.getCanRelist(), "Can relist value is false!");
         validatePromotion(category.getPromotions(), PROMOTION_NAME, PROMOTION_DESCRIPTION);
         softAssert.assertAll();
     }
@@ -35,7 +35,7 @@ public class CategoryTest extends TestBase {
     private void validatePromotion(List<Promotion> promotionList, String searchKey, String valueToBePresent) {
         for (Promotion promotion : promotionList) {
             if (promotion.getName().equals(searchKey)) {
-                softAssert.assertTrue(promotion.getDescription().contains(valueToBePresent));
+                softAssert.assertTrue(promotion.getDescription().contains(valueToBePresent), "Promotion description is invalid!");
             }
         }
     }
